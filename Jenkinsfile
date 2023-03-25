@@ -1,4 +1,6 @@
-node {
+node('nodes') 
+
+{
 
 def mavenHome= tool name: "Maven-3.9.1"
 properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '4', artifactNumToKeepStr: '5', daysToKeepStr: '30', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
