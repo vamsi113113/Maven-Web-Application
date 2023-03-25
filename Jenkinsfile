@@ -17,12 +17,13 @@ sh "${mavenHome}/bin/mvn clean package"
 {
 sh "${mavenHome}/bin/mvn sonar:sonar"     
 }
+*/ 
 stage ('TomcatDeploy')
 {
 sshagent(['e74d0c32-3fa4-4303-84e7-41cb1f34a569']) 
 {
 }    
-}*/
+}
 stage('email notification')
 {
  emailext body: '''Build is done 
