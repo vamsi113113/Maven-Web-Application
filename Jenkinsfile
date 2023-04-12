@@ -1,31 +1,34 @@
-node {
+node{
 
-def mavenHome= tool name: "Maven-3.9.1"
-properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '4', artifactNumToKeepStr: '5', daysToKeepStr: '30', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
+def mavenHome= tool name: "maven"
 
-stage('checkout')
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '5', daysToKeepStr: '15', numToKeepStr: '5')), pipelineTriggers([githubPush()])])
+
+stage('Github Checkout')
 {
-git branch: 'development', credentialsId: 'cd765832-ec7e-44c1-ae90-0c9f8f1e9223', url: 'https://github.com/vamsi113113/Maven-Web-Application.git'
+    git branch: 'Testin12april', credentialsId: 'e5f99023-f644-4f97-bc9a-697f44aea9c0', url: 'https://github.com/vamsi113113/Maven-Web-Application.git'
 }
 stage('Build')
 {
 sh "${mavenHome}/bin/mvn clean package"
 }
-/*stage('executeSonarcube')
+stage('Deploy Tomcat Server')
 {
-sh "${mavenHome}/bin/mvn sonar:sonar"     
+sshagent(['5f45180a-14c9-472f-a021-05e01ce3c7b1'])
+{
+sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@54.209.151.221:/opt/apache-tomcat-9.0.73/webapps/"
 }
-stage ('TomcatDeploy')
+}
+stage('sendEmailNotification')
 {
-sshagent(['e74d0c32-3fa4-4303-84e7-41cb1f34a569']) 
-{
-}    
-}*/
-stage('email notification')
-{
- emailext body: '''Build is done 
+emailext body: '''Build Success
 
-Regards,
-Vamsidhar Reddy.''', subject: 'Build is done', to: 'rachuri113@gmail.com'   
+Please check logs if its fails
+
+From,
+Vamsidhar Reddy,
+DevOps Consultant
+
+''', subject: 'Build Success ', to: 'devops100000@gmail.com, vamsidhar2992@gmail.com'
 }
 }
