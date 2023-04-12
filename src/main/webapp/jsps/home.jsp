@@ -10,6 +10,7 @@
 </head>
 <body>
 <h1 align="center">Welcome to Mithun software solutions Private Limited. Bengaluru,Marathahalli,Karnataka,India </h1>
+<h3 align="cenrer"> Hi all changes updated </h3>
 <h1 align="center"> Mithun Technologies- Very Good Training center for DevOps with AWS in Maratha Halli Bangalore India and also for Job Assitance Job Support also...Teaching Real Time scnerios</h1>
 <hr>
 <br>
@@ -36,7 +37,7 @@ out.println("Server Host Name :: "+inetAddress.getHostName());
 	<span style="font-weight: bold;">
 		Mithun Technologies, 
 		Martha Halli, Above ICICI Bank, Beside Meghana Foods,
-		Bangalore,
+		Hyderabad,
 		+91-9980923226,+91-9900012028
 		devopstrainingblr@gmail.com
 		<br>
