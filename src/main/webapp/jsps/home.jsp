@@ -11,6 +11,7 @@
 <body>
 <h1 align="center">Welcome to Mithun software solutions Private Limited. Bengaluru,Marathahalli,Karnataka,India </h1>
 <h3 align="cenrer"> Ramesh we are making some changes into this file  </h3>
+<h3 align="cenrer"> we are checking these and to auto deploy  </h3>
 <h1 align="center"> Mithun Technologies- Very Good Training center for DevOps with AWS in Maratha Halli Bangalore India and also for Job Assitance Job Support also...Teaching Real Time scnerios</h1>
 <hr>
 <br>
